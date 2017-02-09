@@ -1,0 +1,102 @@
+etalon10.txt 0.0.0                    UTF-8                      dh:2017-01-09
+
+                                  nfoWare Games
+                                  =============
+                            
+                      <https://github.com/orcmid/etalon10/>
+
+                   ETALON 1.0 WORD PUZZLER COMMAND-LINE GAME
+
+                     SOURCE CODE VERSION CONTROL REPOSITORY
+                     --------------------------------------
+
+    etalon10 is a command-line game by which players attempt to guess a
+    word given initial information and clues about each successive guess.
+    
+    The game is patterned after the Bulls and Cows game.  The original
+    inspiration is presentation of Bulls and Cows in Section 02 of Udemy's
+    "The Unreal Engine Developer Course - Learn C++ and Make Games" online
+    course.
+    
+    Etalon 1.0 is renamed to feature the provision of a fully-featured
+    command-line version that is not oriented as preparation for making
+    games using the Unreal Engine.  The etalon10 version is free-standing
+    and organized as an open-source project on an nfoWare pattern.
+         
+MANIFEST
+
+    etalon10.txt 
+        this manifest and job-jar file
+        
+    etalon10-GDD.txt
+        the Game Design Document (BDD) for Etalon 1.0.
+
+    src/
+        folder of the source-code files that comprise the game and any
+        solver for the game.
+        
+    dev/ [TBD]
+        folder of procedures, scripts, and code used in constructing 
+        the etalon10 program from the source code.
+                      
+    LICENSE.txt
+         The open-source software license that applies to the etalon10
+         software
+         
+    NOTICE.txt
+         Notice that applies with respect to particular components of
+         the etalon10 software.
+         
+    .gitattributes
+         A declaration of file attributes for use in Git repositories of
+         the etalon10 source code.
+         
+    .gitignore
+         A declaration of artifacts to be ignored and excluded from Git
+         repositories, applying to working files that are not part of the
+         managed archive materials
+         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                       Copyright 2017 Dennis E. Hamilton
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ 
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 
+TODO
+
+  * Add GitHub Readme.md when ready.
+  
+  * Cover toolcraft and the intention of relying exclusively on freely-
+    available software tools and libraries.
+    
+  * Explain the licensing approach and handling of open-source code and any
+    contributions to it.
+    
+  * Upgrade the src/ folder and its files to complete customization as
+    etalon10 code.
+    
+  * Add dev/ folder and a WinCon/ subtree for compiling etalon10.exe 
+    versions and their companion materials.
+    
+  * Provide more connection between etalon10 and the Section02 project of
+    the Unreal Developer course.
+    
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ 0.0.0 2017-02-09-14:00 Initial synopsis and manifest for the code that is
+       the basis for forking Etalon 1.0.
+
+
+                        ***** end of etalon10.txt *****

@@ -1,0 +1,293 @@
+etalon10-GDD.txt 0.0.9               UTF-8                         2017-02-09
+/* ------1---------2---------3---------4---------5---------6---------7------ */
+
+        <https://github.com/orcmid/etalon10>\etalon10-GDD.txt
+
+                  ETALON 1.0 COMMAND-LINE GAME DESIGN DOCUMENT
+                  ============================================
+
+    This is the command-line game that is used as an Introduction to C++ in
+    the Udemy "Unreal Engine Developer Course: Learn C++ & Make Games" at
+    <https://www.udemy.com/unrealcourse>.  The Game Design Document (GDD)
+    development arises at Section 02, Lecture 11.  The command-line version
+    is developed over the entire course of Section 02 to establish the use
+    of Visual Studio Community Edition and Visual C++ which will later be
+    used beneath the Unreal Engine in subsequent sections.
+    
+    This particular solution deviates from that of the course in significant
+    ways and it should be examined as a source of alternative ideas and not 
+    as an appropriate achievement of the objectives of Section 02.  Beginners
+    should follow the exact treatment in the course and not be distracted by
+    the deviations made here.
+    
+    This document is to be maintained.  It is expected that some of the 
+    narrative of this document will be worked into the code structure itself.
+    
+1. THE PROBLEM
+
+   Provide a mental challenge for the player.
+   
+   Have it work for youngsters and adults who have learned to read and spell
+   English.
+   
+2. CONCEPTS AND RULES
+   See <https://en.wikipedia.org/wiki/Bulls_and_Cows> [2].
+
+   The program chooses an English isogram word, one that has no repeating 
+   letters.  Examples are "rules", "tough", "begin", "trowel", "burglar",
+   "cough", "counsel", "cuneiform", "human", "computer", "software", "isogram",
+   and many more.  The most popular forms uses 4/5-letter words.
+   
+   The player is asked to enter a guess for what the n-letter secret word is.
+   
+   The program reports the number of Bulls, letters in the same place as in
+   the secret word, possibly 0.
+   
+   The program reports the number of Cows, letters in the secret word but not 
+   in the same place, also possibly 0.
+   
+   If the word has not been guessed yet, the player is allowed another guess
+   until the limit on guesses is reached.
+   
+3. FUNCTIONAL REQUIREMENTS 
+   
+   Accomplish it with a simple command-line program using text input-output.
+   
+   Start with the simplest console application that demonstrates game play.
+   
+   INPUTS  
+   
+     * The program has a list of at least one word that can be chosen from. 
+     
+     * Keyboard input is text in response to promtps from the computer.  
+       Only the 26 letters A ... Z are accepted and case does not matter.
+       
+   OUTPUTS
+   
+     * All output is in text lines.
+     
+   USER INTERACTIONS
+   
+     * For each play, the computer randomly chooses one of its words.
+   
+     * The user will be told how many letters there are in the word to guess
+       and also how many tries are allowed.
+     
+     * The user will be asked to submit a guess.
+     
+     * If the guess is not an isogram of the correct length, 
+       the user will be asked to try again.
+     
+     * If the guess is a good isogram the user will be told the number of Bulls
+       and Cows.
+       
+     * If the word has not been guessed yet, and the limit of guesses has not
+       been reached, the user is invited to make another guess.
+       
+     * If the word has been found (n Bulls), the user is congratulated.
+     
+     * If the limit on guesses has been reached, the user is commiserated with
+       and told what the word is. [dh:2016-12-25 This is generally not a good
+	   idea.  We don't want to give users hints about what the dictionary is,
+	   and the user can try again, can even notice when there starts to be
+	   a previously-remembered pattern.]
+       
+     * For either outcome, the user is offered the choice of another play.
+       
+   ASSETS
+   
+     No assets are required beyond an initial list of words (or a single word).
+     
+4. ARCHITECTURE
+
+   We are going to do bottom-up spiral construction since this is an easy
+   problem.
+
+   A form of Model-View-Controller will be applied.  The Model class
+   is only about the secret-holder offering methods that answer particular
+   questions about the current guess.
+
+   The view is about the presentations, and that might not be easily separated
+   from control in the case of a console application with only line input-output.
+   The interactions will be separated even though operation is synchronous [7].
+   
+   For convenience of deployment and of operation, a batch script is used 
+   for initiation, similar to Adv10 release operation (not dev building), and
+   the creation of a shortcut that can be placed anywhere is also provided. 
+   (See [6].)
+   
+   This will be an elementary deployment model and not consider side-by-side
+   versions or anything like that.  
+   
+   The deployment model will be with release builds, also.  And the notion of
+   always having everything needed in a release and only in a release will be
+   applied.  This is more process (i.e., software/systems engineering), not
+   program architecture so much.
+     
+5. POSSIBLE FUTURE IDEAS
+
+   For play-testing it might also be interesting to introduce the idea of an 
+   auto-play mechanism, providing a way to demonstrate the guessing procedure.  
+   This is not unlike having a solver.
+
+   Use list of more than one choice for the secret word
+   
+   Let the user choose the maximum length of hidden word to be offered.
+   
+   Minimize the odds of a word being repeated.
+   
+   Provide a way to create the word list, shuffle it (e.g., by hashing), 
+   and work randomly through it.  A scrabble dictionary that is filtered
+   for isograms would be perfect.  This might also be a good way to determine
+   complexity using the scrabble score for a word.  However, changing the
+   suggested limit based on that is a clue, so we can't use it in the
+   guessing, only perhaps in scoring.
+
+   In competitive use the trick is to have two players attempt the 
+   same words, though not necessarily in the same sequence.  Then determine 
+   the number of times a player achieved fewer tries on the same word
+   as the opponent, the winner being the player with the most fewer tries.
+   There might even be a sudden-death playoff.
+
+   It is not clear that the word should be revealed.  I have added a 
+   caveat about that.  
+
+   Develop a solver that will algorithmically produce guesses.  This 
+   works best, in one sense, if the guesses do not have to be known 
+   English words.  If the solver has access to the same word list, 
+   that can be even better, since letter patterns can be filtered
+   for and this can lead to more rapid elimination in some cases.
+
+   Something to take advantage of in a solver is the fact that we
+   don't actually care what the letters are, in reducing to a
+   set of WordLength() letters, they are just as good as x[0], x[n-1]
+   and we only care about position.  Basically we are reducing a
+   candidate set.  At the beginning, elimination of candidates is
+   as useful as confirming candidates and establishing their positions.
+   The middle game is the trickiest as is blending the end game into
+   the middle game.
+
+   There is also the matter of finding out what the optimum play tree
+   is.  There is background on this, although it is a little difficult
+   to figure out how the existing diagrams work.  Also, the optimum
+   tree may depend on the corpus of words, and it varies by word
+   length.  This requires some heavy analysis and it may be better
+   to do that in something like F# or Python or something else that
+   handles lists very well.
+
+   For a solver, I have this feeling about tri-state Booleans, such
+   as occur in circuit simplifiers: 0, 1, 2 for true, false, don't care.
+   Not quite the same thing, but interesting.  This is for searching
+   words.  I am guessing about this.  Don't have an useful conception.
+
+   Knuth [4] mentions minimax strategies, which also means alpha-beta 
+   pruning might be applicable.  There are rich recreational-
+   computing explorations possible with this.  It would be useful
+   to make a dedication to Fred Gruenberger in that respect.
+
+6. BACKGROUND INFORMATION
+
+   [1] Wikipedia.  Letter Frequency.  
+		<https://en.wikipedia.org/wiki/Letter_frequency>
+		Relative frequency of letters in large samples of English
+		words: e t a o i n s h r d l c u m w f g y p b v k j x q z
+		Relative frequency of first letters in large samples of
+		words: t o a w b c d s f m r h i y e g l n p u v j k q z x
+		These might best be derived from a corpus of isograms of
+		each length, though.
+
+	[2] Wikipedia.  Bulls and Cows.
+		<https://en.wikipedia.org/wiki/Bulls_and_Cows>
+
+	[3] Slovesnov.  Optimal Algorithms for Bulls and Cows Game.
+		<http://slovesnov.users.sourceforge.net/index.php?bullscows,english>
+
+	[4] Knuth, Donald E.  The Computer as Master Mind.  Chapter 25, 
+		pp. 219-229 in "Selected Papers on Fun & Games."  CLSI Lecture
+		Notes no. 192.  CLSI Publications (Stanford, CA: 2011)
+		ISBN 1-57586-584-X.
+		   Bulls & Cows is mentioned in a few asides.  If we don't
+		consider that isograms must also be actually-used English
+		words, the alphabet itself is not so important as there 
+		simply being 26 symbols from which n-length terms are to
+		be guessed.
+
+	[5] Knuth, Donald E.  ETAOIN SHRDLU Non-Crashing Sets.  Chapter 35,
+	    pp. 429-430 in "Selected Papers on Fun & Games."  CLSI Lecture
+		Notes no. 192.  CLSI Publications (Stanford, CA: 2011)
+		ISBN 1-57586-584-X.
+		   This is related to Bulls & Cows in that it provides a
+		way of guessing 5-letter words that in some manner work
+		through getting disjoint arrangements of x letters in
+		in <= x tries.  More recreational computing that may be
+		adaptable to Bulls & Cows guessing.  Note: Knuth is not
+		limiting this exploration to isograms.
+		
+	[6] See <https://github.com/orcmid/Adv10/tree/master/dev/WinCon> for
+	    the evolution of this idea, but for deployment, not development.
+	    The generic case is evolving on <http://nfoWare.com/dev> notes and at
+	    <https://github.com/orcmid/nfoTools/tree/master/devKits/WinDev/WinConKit>
+	
+	[7] Because all interactions in the command-line version of BullCowGame
+	    are synchronous, the View [Model] considerations are rather 
+	    different.  Yet there is important need for separation.  One is
+	    that the View becomes separately testable.  In some sense this
+	    is lost in the collapsed VC, as it were, of PlayGame, although the
+	    testing of incomplete PlayGame is suggestive.  I am not clear that
+	    the View should directly access the model, even though it could.  If
+	    we were using interfaces, it might be more appropriate to have the
+	    View access an interface that is a bit more abstracted and constrained,
+	    although I have doubts about that.
+	       See <http://stackoverflow.com/a/3540895/33810> and also recognition
+	    that MVVM is a *pattern*, even though illustrated by a common usage,
+	    <https://msdn.microsoft.com/en-us/library/hh848246.aspx>.  So is MVC,
+	    although some treatments are too tied to a particular implementation
+	    case, as at <https://msdn.microsoft.com/en-us/library/ff649643.aspx>.
+		     
+ 
+/* ------1---------2---------3---------4---------5---------6---------7------ */
+
+TODO:
+
+  * Reworkd this document to reflect etalon10 project structure and direction.
+
+  * Touch up the completed version enough so that it can become a frozen 0.1.0
+    branch prior to forking this into an nfoTools-based command-line project.
+    
+  * AFTER freezing the 0.1.0 branch, change the project structure to use a 
+    src/ and dev/ split and put the VS project in the dev/ tree.  Challenges
+    and experiments/sandboxes for all of that will come post 0.1.0, including
+    all of the desired customizations.
+    
+  * Find a better name for the forked version.  It will not be project 
+    Section02 but it needs decent solution, project and .exe names.  It 
+    would be cool to have it be an isogram.
+  
+  * Create a separated view class.  It somehow does not need to see the
+    whole model, but it needs some access in order to form messages properly.
+    Should it do that, should its methods receive parameters, or should it have
+    a restricted view of the model?  Figure this out.  We want minimal coupling,
+    but perhaps quite a bit more than none.
+    
+/* ------1---------2---------3---------4---------5---------6---------7------ */    
+
+ 0.0.9 2017-02-09-13:27 Fork 0.0.8 Section02-BullCow-GDD.txt as boilerplate
+       in etalon10-GDD.txt.  Perform minimal renaming for this new location.
+ 0.0.8 2017-01-02-13:35 Implement TODO to add MaxTries constructor parameter.
+ 0.0.7 2017-01-02-13:07 Implement TODO on change to ::MaxTries().
+ 0.0.6 2017-01-02-12:46 Start TODOs for 0.1.0 completion with a frozen branch,
+       after wrap-up adjustments.
+ 0.0.5 2016-12-30-12:27 Tidy up to reflect the form as of the conclusion of
+       this developer's work on Section 02, ready for continuation to a 
+       deployable form.
+ 0.0.4 2016-12-29-09:18 Add deployment considerations to architecture, and
+       look at some software-engineering architectural considerations too.
+ 0.0.3 2016-12-25-10:26 Reflect presence on GitHub now.  Adjust some items,
+       Add possible future ideas and also some resources and background on 
+	   the game.
+ 0.0.2 2016-12-18-15:01 Duh. This is for Section02, not Section01.
+ 0.0.1 2016-12-18-14:55 First Draft kept in the folder on this course Section
+       for reference and refinement.
+
+
+                        *** end of etalon10-GDD.txt ***        
