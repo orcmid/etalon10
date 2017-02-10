@@ -1,4 +1,4 @@
-etalon10.txt 0.0.0                    UTF-8                      dh:2017-01-09
+etalon10.txt 0.0.1                    UTF-8                      dh:2017-02-10
 
                                   nfoWare Games
                                   =============
@@ -16,12 +16,14 @@ etalon10.txt 0.0.0                    UTF-8                      dh:2017-01-09
     The game is patterned after the Bulls and Cows game.  The original
     inspiration is presentation of Bulls and Cows in Section 02 of Udemy's
     "The Unreal Engine Developer Course - Learn C++ and Make Games" online
-    course.
+    course.  Additional information about the game is found in the Game
+    Design Document, etalon10-GDD.txt, in the GitHub repository.
     
     Etalon 1.0 is renamed to feature the provision of a fully-featured
     command-line version that is not oriented as preparation for making
     games using the Unreal Engine.  The etalon10 version is free-standing
-    and organized as an open-source project on an nfoWare pattern.
+    and organized as an open-source project on the nfoWare devTools pattern 
+    for command-line applications.
          
 MANIFEST
 
@@ -88,13 +90,17 @@ TODO
     etalon10 code.
     
   * Add dev/ folder and a WinCon/ subtree for compiling etalon10.exe 
-    versions and their companion materials.
+    versions and their companion materials for Windows.
     
   * Provide more connection between etalon10 and the Section02 project of
     the Unreal Developer course.
     
+  * Add some indication of origin in the NOTICE.txt file, including how to
+    obtain the instructor-derived version.
+    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.1 2017-02-10-08:21 Add License and Notice, make some touch-ups
  0.0.0 2017-02-09-14:00 Initial synopsis and manifest for the code that is
        the basis for forking Etalon 1.0.
 
