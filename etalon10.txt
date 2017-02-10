@@ -1,4 +1,4 @@
-etalon10.txt 0.0.2                    UTF-8                      dh:2017-02-**
+etalon10.txt 0.0.3                    UTF-8                      dh:2017-02-10
 
                                   nfoWare Games
                                   =============
@@ -37,7 +37,7 @@ MANIFEST
         folder of the source-code files that comprise the game and any
         solver for the game.
         
-    dev/ [TBD]
+    dev/ 
         folder of procedures, scripts, and code used in constructing 
         the etalon10 program from the source code.
                       
@@ -85,10 +85,7 @@ TODO
     
   * Explain the licensing approach and handling of open-source code and any
     contributions to it.
-       
-  * Add dev/ folder and a WinCon/ subtree for compiling etalon10.exe 
-    versions and their companion materials for Windows.
-    
+          
   * Provide more connection between etalon10 and the Section02 project of
     the Unreal Developer course.
     
@@ -101,8 +98,12 @@ TODO
   * The 5Ps for etalon10 need to be accountd for as well, whether in this
     synopsis, any README.md, and at nfoWare d170201.
     
+  * The source discussion should emphasize that this is Code in the Open, and
+    not an organized open-source project, despite the licensing.
+    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.3 2017-02-10-09:18 TODOs progression and addition of dev/ subtree.
  0.0.2 2017-02-10-08:52 Touch-ups, TODOs advancement, setup of src/src.txt 
        for continuing work there.
  0.0.1 2017-02-10-08:21 Add License and Notice, make some touch-ups

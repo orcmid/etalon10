@@ -1,0 +1,85 @@
+dev.txt 0.0.0                        UTF-8                          2017-02-10
+
+              <https://github.com/orcmid/etalon10>/dev/dev.txt>
+
+                    ETALON10 DEVELOPER CONSTRUCTION SETS
+                    ====================================
+
+    The developer construction sets are platform-specific structures for 
+    compiling and exercising the etalon10 software.  
+    
+    In this approach, the code is always compilable and executable as
+    we work through the x.y.z semantic versions.  There should always be
+    tests for confirmation of the results as well.  When there are version
+    releases, the construction set will build the developer version of  
+    release that it is contained in.
+    
+    For etalon10, the WinCon construction set is designed to provide an entry-
+    level exercise for novices who wish to construct the etalon10 program for 
+    themselves as introduction to coding for fun, computer programming for 
+    everyone (CP4E), and a little software-engineering for everyone (SE4E)
+    as well. 
+    
+    The main thrust for the etalon10 project is demonstrating development on 
+    and for the Microsoft Windows platform. Other platforms and construction 
+    will be entertained as supplementary options.  
+    
+    Developer versions of etalon10 lack detailed branding for the installed
+    program.  Essential parameters for branding and delivery via app stores
+    and other means are omitted.  Each provider of authenticated and 
+    verificable versions must provide their own secure authentication along 
+    with appropriate branding.  The purpose of this separation is to impede 
+    counterfeiting and to reveal imposter versions of the software targeting
+    innocent end-users. 
+    
+    In all other respects, development of etalon10 provides code in the open 
+    made completely available under an open-source license.
+    
+    
+MANIFEST
+
+    dev.txt
+        This description file on organization of the archive and use of its
+        materials.
+        
+    WinCon/ 
+        Construction set for Windows Console version of Adv10.  Construction
+        employs freely-available Microsoft development tools for construction
+        on the Microsoft Windows PC platform.
+        
+        
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                       Copyright 2016 Dennis E. Hamilton
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+TODO
+
+ * Work up the Visual C++ console compilation case, WinCon
+ 
+ * Add something about where devKits for constructions sets are found.
+ 
+ * Add something about developing/maintaining construction sets.
+   This can be by appropriate pointers.
+ 
+ * Get to the first level of clean compilation for an executable null 
+   implementation, and work a form of test-driven spiral development.
+   
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ 0.0.0 2017-02-10-09:16 Initial Placeholder as part of folder setup.
+       The initial text is based on version 0.0.5 of Adv10/dev/dev.txt
+       at <https://github.com/orcmid/Adv10>.
+
+                           *** end of dev.txt ***        
