@@ -1,4 +1,4 @@
-etalon10.txt 0.0.1                    UTF-8                      dh:2017-02-10
+etalon10.txt 0.0.2                    UTF-8                      dh:2017-02-**
 
                                   nfoWare Games
                                   =============
@@ -22,7 +22,7 @@ etalon10.txt 0.0.1                    UTF-8                      dh:2017-02-10
     Etalon 1.0 is renamed to feature the provision of a fully-featured
     command-line version that is not oriented as preparation for making
     games using the Unreal Engine.  The etalon10 version is free-standing
-    and organized as an open-source project on the nfoWare devTools pattern 
+    and organized as an open-source project on the nfoWare nfoTools pattern 
     for command-line applications.
          
 MANIFEST
@@ -85,10 +85,7 @@ TODO
     
   * Explain the licensing approach and handling of open-source code and any
     contributions to it.
-    
-  * Upgrade the src/ folder and its files to complete customization as
-    etalon10 code.
-    
+       
   * Add dev/ folder and a WinCon/ subtree for compiling etalon10.exe 
     versions and their companion materials for Windows.
     
@@ -98,8 +95,16 @@ TODO
   * Add some indication of origin in the NOTICE.txt file, including how to
     obtain the instructor-derived version.
     
+  * Scrub the Game Design Document, tie it to etalon10 here and on nfoWare,
+    and also point to the origin of the GDD.
+    
+  * The 5Ps for etalon10 need to be accountd for as well, whether in this
+    synopsis, any README.md, and at nfoWare d170201.
+    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.2 2017-02-10-08:52 Touch-ups, TODOs advancement, setup of src/src.txt 
+       for continuing work there.
  0.0.1 2017-02-10-08:21 Add License and Notice, make some touch-ups
  0.0.0 2017-02-09-14:00 Initial synopsis and manifest for the code that is
        the basis for forking Etalon 1.0.
